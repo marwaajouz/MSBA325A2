@@ -35,6 +35,7 @@ ax.set_xlabel("Country")
 ax.set_ylabel("Cigarettes per Day")
 ax.set_title(f"Number of Cigarettes Consumed / Smoking Person / Day / Country ({selected_year})")
 
+plt.xticks(rotation=90)
 # Display the chart in Streamlit
 st.pyplot(fig)
 
