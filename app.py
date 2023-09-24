@@ -12,12 +12,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-
-st.write('Hello')
+st.title('Smokers in the Arab Region')
+st.write('This page provides insights about the smoking condition in the Arab region using visualizations that show different smoking metrics throughout the years 2000 - 2012')
 
 data_path= 'https://raw.githubusercontent.com/marwaajouz/MSBA325A2/main/smoking2.csv'
 data = pd.read_csv(data_path)
 
+st.write('Click the checkbox if you want to see the raw data')
 if st.checkbox('Show raw data'):
     st.subheader('Raw data')
     st.write(data)
@@ -41,7 +42,7 @@ plt.xticks(rotation=90)
 st.pyplot(fig)
 
 
-st.title('Country Data Visualizer')
+st.subheader('Country Data Visualizer')
 
 selected_country = st.selectbox('Select a country', data['Country'].unique())
 
