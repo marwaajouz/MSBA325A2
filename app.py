@@ -42,8 +42,8 @@ plt.xticks(rotation=90)
 st.pyplot(fig)
 
 
-st.subheader('Country Data Visualizer')
-
+st.subheader('Percentage of Female vs Male Smokers and their change across the years')
+st.write('Select a country of your interest')
 selected_country = st.selectbox('Select a country', data['Country'].unique())
 
 # Radio button for selecting 'percentage' or 'numbers'
