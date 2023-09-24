@@ -20,5 +20,17 @@ if st.checkbox('Show raw data'):
     st.subheader('Raw data')
     st.write(data)
 
+st.title('Number of Cigarettes Consumed / Smoking Person / Day / Country')
+selected_year = st.slider('Select Year', min_value=data['Year'].min(), max_value=data['Year'].max())
+filtered_data = data[data['Year'] == selected_year]
+fig = px.bar(filtered_data, x="Country", y="Data.Daily cigarettes",
+             text="Data.Daily cigarettes", labels={'Data.Daily cigarettes': 'Cigarettes per Day'})
+fig.update_traces(texttemplate='%{text}', textposition='outside')
+
+# Update layout
+fig.update_layout(title=f"Number of Cigarettes Consumed / Smoking Person / Day / Country ({selected_year})")
+
+# Show the figure
+st.plotly_chart(fig)
 
 
