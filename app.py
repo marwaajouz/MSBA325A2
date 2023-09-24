@@ -9,6 +9,7 @@ import altair as alt
 import squarify
 import matplotlib.cm as cm
 import numpy as np
+import plotly.express as px
 
 
 st.write('Hello')
