@@ -8,6 +8,7 @@ import json
 import altair as alt
 import squarify
 import matplotlib.cm as cm
+import numpy as np
 
 
 st.write('Hello')
