@@ -22,7 +22,7 @@ if st.checkbox('Show raw data'):
     st.subheader('Raw data')
     st.write(data)
 
-st.title('Number of Cigarettes Consumed / Smoking Person / Day / Country')
+st.subheader('Number of Cigarettes Consumed / Smoking Person / Day / Country')
 # Create a Streamlit slider to select the year
 selected_year = st.slider('Select Year', 2000, 2012)
 
