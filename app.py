@@ -71,7 +71,7 @@ st.pyplot(plt)
 
 st.title('Country Data Visualizer')
 
-selected_year = st.slider('Select a year', min_value=2000, 2012)
+selected_year = st.slider('Select a year', min_value=2000, max_value=2012)
 
 # Filter the dataframe based on the selected year
 filtered_data = data[data['Year'] == selected_year]
