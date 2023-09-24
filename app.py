@@ -10,7 +10,7 @@ import squarify
 import matplotlib.cm as cm
 import numpy as np
 import matplotlib.pyplot as plt
-import mpld3
+
 
 
 st.write('Hello')
@@ -68,22 +68,3 @@ plt.xlabel('Year')
 plt.legend()
 st.pyplot(plt)
 
-
-st.title('Country Data Visualizer')
-
-selected_year = st.slider('Select a year', min_value=2000, max_value=2012)
-
-# Filter the dataframe based on the selected year
-filtered_data = data[data['Year'] == selected_year]
-
-# Calculate the difference between percentage male and percentage female
-filtered_data['Difference'] = filtered_data['Data.Percentage.Male'] - filtered_data['Data.Percentage.Female']
-
-# Create a bar chart to display the differences
-plt.figure(figsize=(10, 6))
-plt.bar(filtered_data['Country'], filtered_data['Difference'], color='purple')
-plt.xlabel('Country')
-plt.ylabel('Difference (%)')
-plt.title(f'Difference between Percentage Male and Percentage Female for Year {selected_year}')
-plt.xticks(rotation=45)
-st.pyplot(plt)
