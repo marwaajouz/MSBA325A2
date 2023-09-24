@@ -21,7 +21,7 @@ if st.checkbox('Show raw data'):
     st.write(data)
 
 st.title('Number of Cigarettes Consumed / Smoking Person / Day / Country')
-selected_year = st.slider('Select Year', min_value=data['Year'].min(), max_value=data['Year'].max())
+selected_year = st.slider('Select Year', 2000, 2012)
 
 
 
