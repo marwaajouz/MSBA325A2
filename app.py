@@ -41,9 +41,6 @@ plt.xticks(rotation=90)
 st.pyplot(fig)
 
 
-# Display the chart in Streamlit
-st.pyplot(fig)
-
 
 # Create an Altair chart
 chart = alt.Chart(filtered_data).mark_bar().encode(
@@ -55,5 +52,5 @@ chart = alt.Chart(filtered_data).mark_bar().encode(
 )
 
 # Show the chart in Streamlit
-st.altair_chart(chart, use_container_width=True)
+st.altair_chart(chart)
 
