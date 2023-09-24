@@ -9,7 +9,6 @@ import altair as alt
 import squarify
 import matplotlib.cm as cm
 import numpy as np
-!pip install plotly
 import plotly.express as px
 
 
