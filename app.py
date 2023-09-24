@@ -40,7 +40,24 @@ plt.xticks(rotation=90)
 st.pyplot(fig)
 
 
+# Create an interactive bar chart using Plotly Express
+fig = px.bar(
+    filtered_data,
+    x="Country",
+    y="Data.Daily cigarettes",
+    text="Data.Daily cigarettes",
+    labels={'Data.Daily cigarettes': 'Cigarettes per Day'},
+    title=f"Number of Cigarettes Consumed / Smoking Person / Day / Country ({selected_year})"
+)
 
+# Update hover text
+fig.update_traces(texttemplate='%{text}', textposition='outside')
+
+# Customize layout
+fig.update_layout(xaxis_title="Country", yaxis_title="Cigarettes per Day")
+
+# Display the chart in Streamlit
+st.plotly_chart(fig)
 
 
 
