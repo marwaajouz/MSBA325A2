@@ -41,27 +41,34 @@ plt.xticks(rotation=90)
 st.pyplot(fig)
 
 
+st.title('Country Data Visualizer')
 
-# Create an Altair chart
-chart = alt.Chart(filtered_data).mark_bar().encode(
-    x="Country",
-    y="Data.Daily cigarettes",
-    text="Data.Daily cigarettes"
-).properties(
-    title=f"Number of Cigarettes Consumed per Smoking Person per Day in {selected_year}"
-)
+# Dropdown for selecting the country
+selected_country = st.selectbox('Select a country', data['Country'].unique())
 
-# Show the chart in Streamlit
-st.altair_chart(chart)
+# Radio button for selecting 'percentage' or 'numbers'
+data_type = st.radio('Select data type', ['percentage', 'numbers'])
 
-# Create an Altair chart with "bar" mark
-chart = alt.Chart(filtered_data).mark_bar().encode(
-    x="Country",
-    y="Data.Daily cigarettes",
-    text="Data.Daily cigarettes"
-).properties(
-    title=f"Number of Cigarettes Consumed per Smoking Person per Day in {selected_year}"
-)
+# Filter the dataframe based on the selected country
+filtered_data = data[data['Country'] == selected_country]
 
-# Show the chart in Streamlit
-st.altair_chart(chart, use_container_width=True)
+# Define colors for the line chart
+colors = ['blue', 'red']
+
+# Create a line chart based on the selected data type
+plt.figure(figsize=(10, 6))
+
+if data_type == 'percentage':
+    plt.plot(filtered_data['Year'], filtered_data['Data.Percentage.Male'], label='Male Percentage', color=colors[0])
+    plt.plot(filtered_data['Year'], filtered_data['Data.Percentage.Female'], label='Female Percentage', color=colors[1])
+    plt.ylabel('Percentage')
+    plt.title(f'{selected_country} Percentage Data')
+else:
+    plt.plot(filtered_data['Year'], filtered_data['Data.Smokers.Male'], label='Male Smokers', color=colors[0])
+    plt.plot(filtered_data['Year'], filtered_data['Data.Smokers.Female'], label='Female Smokers', color=colors[1])
+    plt.ylabel('Number of Smokers')
+    plt.title(f'{selected_country} Number of Smokers')
+
+plt.xlabel('Year')
+plt.legend()
+st.pyplot(plt)
