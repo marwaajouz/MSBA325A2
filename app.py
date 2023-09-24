@@ -13,7 +13,7 @@ import numpy as np
 
 st.write('Hello')
 
-data_path= 'https://raw.githubusercontent.com/marwaajouz/SMSBA325A2/main/smoking2.csv'
+data_path= 'https://raw.githubusercontent.com/marwaajouz/MSBA325A2/main/smoking2.csv'
 data = pd.read_csv(data_path)
 st.subheader('Raw data')
 #st.write(data)
