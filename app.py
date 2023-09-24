@@ -64,3 +64,15 @@ fig.canvas.mpl_connect("motion_notify_event", display_hover_data)
 st.pyplot(fig)
 
 
+# Create an Altair chart
+chart = alt.Chart(filtered_data).mark_bar().encode(
+    x="Country",
+    y="Data.Daily cigarettes",
+    text="Data.Daily cigarettes"
+).properties(
+    title=f"Number of Cigarettes Consumed per Smoking Person per Day in {selected_year}"
+)
+
+# Show the chart in Streamlit
+st.altair_chart(chart, use_container_width=True)
+
