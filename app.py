@@ -65,4 +65,9 @@ if st.checkbox('Show raw data'):
 
 data_path= 'https://raw.githubusercontent.com/marwaajouz/SMSBA325A2/main/smoking2.csv'
 data = pd.read_csv(data_path)
+st.subheader('Raw data')
+st.write(data)
+if st.checkbox('Show raw data'):
+    st.subheader('Raw data')
+    st.write(data)
 
