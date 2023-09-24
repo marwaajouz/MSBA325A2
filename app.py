@@ -10,7 +10,7 @@ import squarify
 import matplotlib.cm as cm
 import numpy as np
 import matplotlib.pyplot as plt
-
+import mpld3
 
 
 st.write('Hello')
