@@ -12,6 +12,7 @@ import numpy as np
 import plotly.express as px
 
 
+
 st.write('Hello')
 
 data_path= 'https://raw.githubusercontent.com/marwaajouz/MSBA325A2/main/smoking2.csv'
