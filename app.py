@@ -43,19 +43,14 @@ st.pyplot(fig)
 
 st.title('Country Data Visualizer')
 
-# Dropdown for selecting the country
 selected_country = st.selectbox('Select a country', data['Country'].unique())
 
 # Radio button for selecting 'percentage' or 'numbers'
 data_type = st.radio('Select data type', ['percentage', 'numbers'])
-
-# Filter the dataframe based on the selected country
 filtered_data = data[data['Country'] == selected_country]
 
-# Define colors for the line chart
 colors = ['blue', 'red']
 
-# Create a line chart based on the selected data type
 plt.figure(figsize=(10, 6))
 
 if data_type == 'percentage':
@@ -71,4 +66,24 @@ else:
 
 plt.xlabel('Year')
 plt.legend()
+st.pyplot(plt)
+
+
+st.title('Country Data Visualizer')
+
+selected_year = st.slider('Select a year', min_value=data['Year'].min(), max_value=data['Year'].max())
+
+# Filter the dataframe based on the selected year
+filtered_data = data[data['Year'] == selected_year]
+
+# Calculate the difference between percentage male and percentage female
+filtered_data['Difference'] = filtered_data['Data.Percentage.Male'] - filtered_data['Data.Percentage.Female']
+
+# Create a bar chart to display the differences
+plt.figure(figsize=(10, 6))
+plt.bar(filtered_data['Country'], filtered_data['Difference'], color='purple')
+plt.xlabel('Country')
+plt.ylabel('Difference (%)')
+plt.title(f'Difference between Percentage Male and Percentage Female for Year {selected_year}')
+plt.xticks(rotation=45)
 st.pyplot(plt)
