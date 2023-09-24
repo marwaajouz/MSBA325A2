@@ -41,25 +41,6 @@ plt.xticks(rotation=90)
 st.pyplot(fig)
 
 
-
-fig, ax = plt.subplots()
-bars = ax.bar(filtered_data["Country"], filtered_data["Data.Daily cigarettes"])
-ax.set_xlabel("Country")
-ax.set_ylabel("Cigarettes per Day")
-ax.set_title(f"Number of Cigarettes Consumed / Smoking Person / Day / Country ({selected_year})")
-
-# Add interactivity to display data on hover
-def display_hover_data(event):
-    for bar in bars:
-        cont, ind = bar.contains(event)
-        if cont:
-            x = bar.get_x()
-            y = bar.get_height()
-            country = bar.get_label()
-            plt.gca().text(x, y, f"{country}: {y}", ha="center", va="bottom", fontsize=10)
-
-fig.canvas.mpl_connect("motion_notify_event", display_hover_data)
-
 # Display the chart in Streamlit
 st.pyplot(fig)
 
